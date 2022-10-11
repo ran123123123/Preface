@@ -8,20 +8,19 @@
 
 import re
 
-from_file = open(r"D:\Extreme Vision\Mack\Code\Preface\words")
-print(from_file.read())
+with open(r"D:\Extreme Vision\Mack\Code\Preface\words.txt", "r") as from_file:
+    indata = from_file.read()
+print(type(indata))
 
+shape = r"\w'+"
+pattern = r"[a-zA-Z]+"
+re_indata = re.compile(pattern, indata)
 
-# open & read in_file
-in_file = open(from_file)
-indata = in_file.read()
+print(re_indata)
+print(type(re_indata))
+out_file = str(re_indata)
 
-# create & open & write to_file
-out_file = open(to_file, 'w')
-out_file.write(indata)
+with open(r"D:\Extreme Vision\Mack\Code\Preface\res_words.txt", 'w') as f:
+    f.write(out_file)
 
-# print result
 print("Alright, all done.")
-# close out_file in_file
-out_file.close()
-in_file.close()
